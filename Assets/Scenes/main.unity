@@ -361,15 +361,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  target: {fileID: 665594689}
+  target: {fileID: 0}
   movementSmooth: 0.1
   zoomSmooth: 0.25
---- !u!4 &665594689 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 228945762487137707, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-    type: 3}
-  m_PrefabInstance: {fileID: 1828197084958466456}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002600069
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +700,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: telescope-fish
       objectReference: {fileID: 0}
+    - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: onChangeVelocityRatio.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: onChangeVelocityRatio.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -775,11 +779,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1905708073530950536, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: onChangeVelocityRatio.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 519420033}
     - target: {fileID: 1905708073530950537, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
         type: 3}
       propertyPath: m_LocalPosition.x

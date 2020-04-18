@@ -9,8 +9,8 @@ public class LaunchController : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private LineRenderer launchPreview;
     [SerializeField] private SlowMotionController slowMo;
-    [SerializeField] private FloatEvent onChangeVelocityRatio;
 
+    [HideInInspector] public FloatEvent onChangeVelocityRatio;
     private float _velocityRatio;
     public float VelocityRatio {
         get => _velocityRatio;
@@ -30,6 +30,8 @@ public class LaunchController : MonoBehaviour
 #endregion
     void Awake()
     {
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        onChangeVelocityRatio.AddListener (cameraController.SetVelocityRatio);
         rb = GetComponent<Rigidbody2D> ();
         fish = GetComponent <Fish> ();
         launchPreview.enabled = false;

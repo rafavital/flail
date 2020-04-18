@@ -56,4 +56,8 @@ public class CameraController : MonoBehaviour
         Vector3 desiredPos = target.position - offset;
         transform.position = Vector3.SmoothDamp (transform.position, desiredPos, ref vel, movementSmooth);
     }
+
+    public void SetVelocityRatio (float ratio) {
+        VelocityRatio = ratio;
+    }
 }
