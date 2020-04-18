@@ -22,7 +22,7 @@ public class FishController : MonoBehaviour
             initialMousePos = Input.mousePosition;
         } else if (Input.GetMouseButtonUp (0)) { 
             launchDir = (Vector2) Input.mousePosition - initialMousePos;
-            
+            rb.velocity = Vector3.zero;
             rb.AddForce (launchDir * launchForce);
         }
     }
