@@ -7,6 +7,7 @@ public class LaunchController : MonoBehaviour
 #region VARIABLES
     [SerializeField] private float launchForce;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private LineRenderer launchPreview;
     [SerializeField] private SlowMotionController slowMo;
     [SerializeField] private FloatEvent onChangeVelocityRatio;
 
@@ -25,11 +26,13 @@ public class LaunchController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 launchDir;
     private Vector2 initialMousePos;
+    private bool isLaunching;
 #endregion
     void Awake()
     {
         rb = GetComponent<Rigidbody2D> ();
         fish = GetComponent <Fish> ();
+        launchPreview.enabled = false;
     }
 
     void Update()
@@ -37,9 +40,13 @@ public class LaunchController : MonoBehaviour
         if (Input.GetMouseButtonDown (0)) {
             BeginLaunch ();
         } else if (Input.GetMouseButtonUp (0)) { 
-            
             EndLaunch();
         }
+        if (isLaunching) {
+            launchPreview.SetPosition (0, transform.position);
+            launchPreview.SetPosition (1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+
     }
 
     private void FixedUpdate() {
@@ -52,6 +59,8 @@ public class LaunchController : MonoBehaviour
 
     private void BeginLaunch () {
         if (fish.Dashs > 0 || fish.puddle) {
+            isLaunching = true;
+            launchPreview.enabled = true;
             initialMousePos = Input.mousePosition;
             slowMo.StartSlowMo();
         }
@@ -61,8 +70,10 @@ public class LaunchController : MonoBehaviour
         int _dashs = fish.Dashs;
         bool _puddle = fish.puddle;
 
-        slowMo.EndSlowMo();
         if (_dashs > 0 || _puddle) {
+            launchPreview.enabled = false;
+            slowMo.EndSlowMo();
+            isLaunching = false;
             rb.velocity = Vector2.zero;
             rb.AddForce (launchDir.normalized * launchForce);
             if (!_puddle) fish.UseDash();

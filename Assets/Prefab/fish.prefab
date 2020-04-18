@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchForce: 2500
   maxSpeed: 40
+  launchPreview: {fileID: 0}
   slowMo: {fileID: 1905708073530950540}
   onChangeVelocityRatio:
     m_PersistentCalls:
