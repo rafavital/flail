@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1905708072499900701}
   - component: {fileID: 1905708072499900702}
-  - component: {fileID: 1905708072499900674}
   - component: {fileID: 1905708072499900672}
   - component: {fileID: 1905708072499900675}
   - component: {fileID: 1905708072499900700}
-  - component: {fileID: 1905708072499900673}
   m_Layer: 8
   m_Name: front
   m_TagString: Untagged
@@ -74,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4275442103438972487, guid: 1138eb0efd27e9c65bb9ac7d359ab12c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1905708072499900674
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905708072499900703}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!60 &1905708072499900672
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -178,17 +160,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -20
     m_UpperAngle: 20
---- !u!247 &1905708072499900673
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905708072499900703}
-  m_Enabled: 0
-  m_Force: {x: 0, y: 50}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
 --- !u!1 &1905708072810166215
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +170,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1905708072810166213}
   - component: {fileID: 1905708072810166214}
-  - component: {fileID: 1905708072810166218}
   - component: {fileID: 1905708072810166219}
   - component: {fileID: 1905708072810166212}
   - component: {fileID: 1905708072810166217}
@@ -262,7 +232,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -306093036189824513, guid: 1138eb0efd27e9c65bb9ac7d359ab12c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -275,22 +245,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1905708072810166218
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905708072810166215}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!50 &1905708072810166219
 Rigidbody2D:
   serializedVersion: 4
@@ -448,7 +402,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6376430625598998016, guid: 1138eb0efd27e9c65bb9ac7d359ab12c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
