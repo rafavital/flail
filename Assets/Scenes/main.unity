@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 1202410303}
   m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,11 +765,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fish
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905708073530950541, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: initialDashCount
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1904c9bd9eccc118e7e7a2d8715fae, type: 3}
