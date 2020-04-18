@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using CustomUnityEvents;
 
-[RequireComponent(typeof (Rigidbody2D))]
-public class FishController : MonoBehaviour
+[RequireComponent(typeof (Rigidbody2D), typeof (Fish))]
+public class LaunchController : MonoBehaviour
 {
-    [SerializeField] private float debugSpeed;
+#region VARIABLES
     [SerializeField] private float launchForce;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private SlowMotionController slowMo;
     [SerializeField] private FloatEvent onChangeVelocityRatio;
 
     private float _velocityRatio;
@@ -20,26 +21,26 @@ public class FishController : MonoBehaviour
         }
     }
 
+    private Fish fish;
     private Rigidbody2D rb;
     private Vector2 launchDir;
     private Vector2 initialMousePos;
-
+#endregion
     void Awake()
     {
         rb = GetComponent<Rigidbody2D> ();
+        fish = GetComponent <Fish> ();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown (0)) {
+            slowMo.StartSlowMo();
             initialMousePos = Input.mousePosition;
         } else if (Input.GetMouseButtonUp (0)) { 
-            launchDir = (Vector2) Input.mousePosition - initialMousePos;
-            rb.velocity = Vector2.zero;
-            rb.AddForce (launchDir.normalized * launchForce);
+            slowMo.EndSlowMo();
+            LaunchFish();
         }
-
-
     }
 
     private void FixedUpdate() {
@@ -48,6 +49,17 @@ public class FishController : MonoBehaviour
             Mathf.Clamp (rb.velocity.x, - maxSpeed, maxSpeed),
             Mathf.Clamp (rb.velocity.y, - maxSpeed, maxSpeed)
         );
-        debugSpeed = rb.velocity.magnitude;
+    }
+
+    private void LaunchFish () {
+        launchDir = (Vector2) Input.mousePosition - initialMousePos;
+        int _dashs = fish.Dashs;
+        bool _puddle = fish.puddle;
+
+        if (_dashs > 0 || _puddle) {
+            rb.velocity = Vector2.zero;
+            rb.AddForce (launchDir.normalized * launchForce);
+            if (!_puddle) fish.UseDash();
+        }
     }
 }
