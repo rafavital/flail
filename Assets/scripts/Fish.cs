@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
-    public bool puddle; 
+    public bool puddle, grounded; 
+    public string puddleTag = "Puddle";
     [SerializeField] private int initialDashCount = 1;
-    [SerializeField] private string puddleTag;
     private int _dashs;
     public int Dashs {get => _dashs; set => _dashs = value;}
 

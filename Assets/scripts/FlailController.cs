@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (Rigidbody2D))]
+[RequireComponent(typeof (Rigidbody2D), typeof (Fish))]
 public class FlailController : MonoBehaviour
 {
     [SerializeField] private float flailForce = 600;
@@ -11,6 +11,7 @@ public class FlailController : MonoBehaviour
     [SerializeField] private Vector2 minMaxX;
     [SerializeField] private Vector2 minMaxY;
     
+    private Fish fish;
     private Vector2 closestPuddle;
     private Rigidbody2D rb;
     private Rigidbody2D[] bodyParts;
@@ -20,13 +21,14 @@ public class FlailController : MonoBehaviour
 
     void Awake()
     {
+        fish = GetComponent<Fish> ();
         rb = GetComponent<Rigidbody2D> ();
         bodyParts = GetComponentsInChildren<Rigidbody2D> ();
-        puddles = GameObject.FindGameObjectsWithTag(puddleTag);
+        puddles = GameObject.FindGameObjectsWithTag(fish.puddleTag);
     }
     void Update()
     {
-        if (Input.GetKeyDown (KeyCode.Space) && grounded) {
+        if (Input.GetKeyDown (KeyCode.Space) && fish.grounded) {
             closestPuddle = GetClosestPuddle ();
             flailDir = new Vector2 (
                 Mathf.Sign (closestPuddle.x - transform.position.x) * Random.Range (minMaxX.x,minMaxX.y),
@@ -63,13 +65,5 @@ public class FlailController : MonoBehaviour
             }
         }
         return closestPuddle;
-    }
-
-    private void OnCollisionEnter2D (Collision2D other) {
-       if (other.collider.tag != puddleTag) grounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        if (other.collider.tag != puddleTag) grounded = false;
     }
 }
