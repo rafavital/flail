@@ -51,9 +51,7 @@ public class LaunchController : MonoBehaviour
     }
 
     private void BeginLaunch () {
-        int _dashs = fish.Dashs;
-
-        if (_dashs > 0 ) {
+        if (fish.Dashs > 0 || fish.puddle) {
             initialMousePos = Input.mousePosition;
             slowMo.StartSlowMo();
         }
