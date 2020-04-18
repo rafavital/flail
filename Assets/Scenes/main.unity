@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 469255708}
   - component: {fileID: 469255710}
   - component: {fileID: 469255707}
+  - component: {fileID: 469255711}
   m_Layer: 8
   m_Name: fish
   m_TagString: Untagged
@@ -397,6 +398,18 @@ MonoBehaviour:
   puddle: 0
   maxDashes: 0
   puddleTag: Puddle
+--- !u!114 &469255711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469255704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c9003ac7ff2698196a67eb694d44ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +544,7 @@ MonoBehaviour:
         m_CallState: 2
   target: {fileID: 469255706}
   movementSmooth: 0.1
-  zoomSmooth: 0.75
+  zoomSmooth: 0.25
 --- !u!1 &1002600069
 GameObject:
   m_ObjectHideFlags: 0
