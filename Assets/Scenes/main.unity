@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64216711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.315, y: -0.583, z: 0}
+  m_LocalPosition: {x: -0.32, y: -0.58, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -328,7 +328,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277bab138bac080e49914ac7f7f4dda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 10
+  debugSpeed: 0
+  launchForce: 2500
+  maxSpeed: 40
+  onChangeVelocityRatio:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_MethodName: set_VelocityRatio
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &469255708
 Rigidbody2D:
   serializedVersion: 4
@@ -406,14 +422,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 50
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
+  m_AssetsPPU: 100
+  m_RefResolutionX: 512
+  m_RefResolutionY: 288
+  m_UpscaleRT: 1
   m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -483,8 +499,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7943703977d624dedb04e9145f5709aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePPU: 50
+  onChangePPU:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 519420030}
+        m_MethodName: set_assetsPPU
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   target: {fileID: 469255706}
-  smooth: 0.1
+  movementSmooth: 0.1
+  zoomSmooth: 0.75
 --- !u!1 &1002600069
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002600069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.479, y: -0.583, z: 0}
+  m_LocalPosition: {x: 0.48, y: -0.58, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -669,7 +701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202410300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.0922, z: 0}
+  m_LocalPosition: {x: 0, y: -1.09, z: 0}
   m_LocalScale: {x: 500000, y: 18.1117, z: 18.1117}
   m_Children: []
   m_Father: {fileID: 0}
