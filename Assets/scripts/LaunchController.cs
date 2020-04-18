@@ -35,11 +35,10 @@ public class LaunchController : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown (0)) {
-            slowMo.StartSlowMo();
-            initialMousePos = Input.mousePosition;
+            BeginLaunch ();
         } else if (Input.GetMouseButtonUp (0)) { 
-            slowMo.EndSlowMo();
-            LaunchFish();
+            
+            EndLaunch();
         }
     }
 
@@ -51,11 +50,20 @@ public class LaunchController : MonoBehaviour
         );
     }
 
-    private void LaunchFish () {
+    private void BeginLaunch () {
+        int _dashs = fish.Dashs;
+
+        if (_dashs > 0 ) {
+            initialMousePos = Input.mousePosition;
+            slowMo.StartSlowMo();
+        }
+    }
+    private void EndLaunch () {
         launchDir = (Vector2) Input.mousePosition - initialMousePos;
         int _dashs = fish.Dashs;
         bool _puddle = fish.puddle;
 
+        slowMo.EndSlowMo();
         if (_dashs > 0 || _puddle) {
             rb.velocity = Vector2.zero;
             rb.AddForce (launchDir.normalized * launchForce);

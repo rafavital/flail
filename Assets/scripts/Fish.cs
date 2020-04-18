@@ -5,10 +5,14 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     public bool puddle; 
-    [SerializeField] private int maxDashes;
+    [SerializeField] private int initialDashCount = 1;
     [SerializeField] private string puddleTag;
-    private int _dashs = 3;
+    private int _dashs;
     public int Dashs {get => _dashs; set => _dashs = value;}
+
+    private void Start() {
+        Dashs = initialDashCount;
+    }
 
     public void UseDash () {
         if (Dashs > 0) Dashs --;
