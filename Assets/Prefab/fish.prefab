@@ -569,4 +569,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flailForce: 600
   flailTorque: 300
-  groundTag: Ground
+  puddleTag: Puddle

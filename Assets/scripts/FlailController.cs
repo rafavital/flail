@@ -7,7 +7,7 @@ public class FlailController : MonoBehaviour
 {
     [SerializeField] private float flailForce = 600;
     [SerializeField] private float flailTorque;
-    [SerializeField] private string groundTag;
+    [SerializeField] private string puddleTag;
 
     private Rigidbody2D rb;
     private Rigidbody2D[] bodyParts;
@@ -42,10 +42,10 @@ public class FlailController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D (Collision2D other) {
-       if (other.collider.tag == groundTag) grounded = true;
+       if (other.collider.tag != puddleTag) grounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D other) {
-        if (other.collider.tag == groundTag) grounded = false;
+        if (other.collider.tag != puddleTag) grounded = false;
     }
 }
