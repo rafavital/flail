@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SlowMotionController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private float slowMoTimeScale = 0.05f;
+    private float standardFixed;
+    private void Start() {
+        standardFixed = Time.fixedDeltaTime;
+    }
+    public void StartSlowMo () {
+        Time.timeScale = slowMoTimeScale;
+        Time.fixedDeltaTime = Time.timeScale * standardFixed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void EndSlowMo () {
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = standardFixed;
     }
 }

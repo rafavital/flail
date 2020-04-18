@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchForce: 2500
   maxSpeed: 40
+  slowMo: {fileID: 469255711}
   onChangeVelocityRatio:
     m_PersistentCalls:
       m_Calls:
@@ -410,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c9003ac7ff2698196a67eb694d44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowMoTimeScale: 0.05
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

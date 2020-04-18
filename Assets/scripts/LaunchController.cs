@@ -7,6 +7,7 @@ public class LaunchController : MonoBehaviour
 #region VARIABLES
     [SerializeField] private float launchForce;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private SlowMotionController slowMo;
     [SerializeField] private FloatEvent onChangeVelocityRatio;
 
     private float _velocityRatio;
@@ -34,8 +35,10 @@ public class LaunchController : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown (0)) {
+            slowMo.StartSlowMo();
             initialMousePos = Input.mousePosition;
         } else if (Input.GetMouseButtonUp (0)) { 
+            slowMo.EndSlowMo();
             LaunchFish();
         }
     }
