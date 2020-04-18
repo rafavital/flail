@@ -22,6 +22,7 @@ public class Fish : MonoBehaviour
         if (other.CompareTag (puddleTag)) {
             Dashs++;
             puddle = true;
+            Debug.Log("TÔ NA POÇA VIU MOÇO!?");
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
