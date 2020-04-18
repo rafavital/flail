@@ -31,6 +31,16 @@ public class CameraController : MonoBehaviour
     private Rigidbody2D targetRB;
     private float refSpeed;
 
+    private void Awake() {
+        if (target == null) {
+            Fish[] fishes = GameObject.FindObjectsOfType<Fish> ();
+            for (int i = 0; i < fishes.Length; i++)
+            {
+                var fish = fishes[i];
+                if (fish.gameObject.activeSelf) target = fish.gameObject.transform;
+            }
+        }
+    }
     void Start()
     {
         targetRB = target.GetComponent<Rigidbody2D> ();
