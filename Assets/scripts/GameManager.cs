@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update() {
         //TODO REMOVE THIS
-        if (GameState == GameStates.BEGINING && Input.GetKeyDown(KeyCode.Space)) StartGame ();
+        if (GameState == GameStates.BEGINING && Input.GetMouseButtonDown(0)) StartGame ();
     }
     public void StartGame () {
         GameState = GameStates.GAMEPLAY;

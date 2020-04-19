@@ -23,10 +23,8 @@ public class Fish : MonoBehaviour
 
     public int Dashs {get => _dashs; set => _dashs = value;}
     private GameManager gm;
-    private void Awake() {
-        gm = GameManager.Instance;
-    }
     private void Start() {
+        gm = GameManager.Instance;
         Dashs = initialDashCount;
         Breath = initialBreath;
     }

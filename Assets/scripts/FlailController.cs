@@ -20,7 +20,7 @@ public class FlailController : MonoBehaviour
     private GameObject[] puddles;
     private bool flail, grounded;
 
-    void Awake()
+    void Start()
     {
         gm = GameManager.Instance;
         fish = GetComponent<Fish> ();
