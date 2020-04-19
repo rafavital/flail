@@ -638,7 +638,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277bab138bac080e49914ac7f7f4dda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 2500
+  forceMode: 0
+  launchForce: 1200
+  launchImpulse: 25
   maxSpeed: 40
   launchPreview: {fileID: 1977480725}
   slowMo: {fileID: 1905708073530950540}
