@@ -25,7 +25,7 @@ public class FlailController : MonoBehaviour
         gm = GameManager.Instance;
         fish = GetComponent<Fish> ();
         rb = GetComponent<Rigidbody2D> ();
-        bodyParts = GetComponentsInChildren<Rigidbody2D> ();
+        bodyParts = fish.rbParts;
         puddles = GameObject.FindGameObjectsWithTag(fish.puddleTag);
     }
     void Update()

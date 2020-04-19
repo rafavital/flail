@@ -7,6 +7,7 @@ public class Fish : MonoBehaviour
 {
     public bool puddle, grounded; 
     public string puddleTag = "Puddle";
+    public Rigidbody2D[] rbParts;
     [SerializeField] private int initialDashCount = 1;
     [SerializeField] private int initialBreath = 100;
     [SerializeField] private float breathRate = 0.1f;
@@ -23,6 +24,7 @@ public class Fish : MonoBehaviour
             }
         }
     }
+
     private int _dashs;
     private bool dying;
 
@@ -32,6 +34,9 @@ public class Fish : MonoBehaviour
         gm = GameManager.Instance;
         Dashs = initialDashCount;
         Breath = initialBreath;
+
+
+        rbParts = GetComponentsInChildren<Rigidbody2D> ();
     }
 
     private void Update() {

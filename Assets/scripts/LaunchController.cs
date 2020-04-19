@@ -41,12 +41,13 @@ public class LaunchController : MonoBehaviour
         onChangeVelocityRatio.AddListener (cam.GetComponent<CameraController>().SetVelocityRatio);
 
         rb = GetComponent<Rigidbody2D> ();
-        bodyParts = GetComponentsInChildren<Rigidbody2D> ();
 
         fish = GetComponent <Fish> ();
         
         if (launchPreview != null)
           launchPreview.enabled = false;
+        
+        bodyParts = fish.rbParts;
 
     }
 
@@ -98,19 +99,17 @@ public class LaunchController : MonoBehaviour
 
             launchPreview.enabled = false;
             slowMo.EndSlowMo();
-            foreach (var body in bodyParts)
-            {
-                body.velocity = Vector2.zero;
-                body.gravityScale = 0;
+
+            if (_puddle) {
+                foreach (var body in bodyParts)
+                {
+                    body.velocity = Vector2.zero;
+                }
             }
+
             rb.AddForce (
                 launchDir.normalized * (forceMode == ForceMode2D.Force ? launchForce : launchImpulse), forceMode
             );
-
-            foreach (var body in bodyParts)
-            {
-                body.gravityScale = 1;
-            }
             
             if (!_puddle) fish.UseDash();
         }

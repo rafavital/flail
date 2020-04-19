@@ -7803,6 +7803,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956235899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 189471552, guid: 3524f537d7e54a2ddb6970ba4d9120ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 450866326050659132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &973940242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19721,6 +19733,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130418459, guid: 3524f537d7e54a2ddb6970ba4d9120ef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130418459, guid: 3524f537d7e54a2ddb6970ba4d9120ef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 450866324960537055, guid: 3524f537d7e54a2ddb6970ba4d9120ef,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -19910,6 +19930,11 @@ PrefabInstance:
       propertyPath: endGameUI
       value: 
       objectReference: {fileID: 94885448}
+    - target: {fileID: 4128832368067016407, guid: 04b48f569bf64e6988729ca01f18a480,
+        type: 3}
+      propertyPath: breathSlider
+      value: 
+      objectReference: {fileID: 956235899}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b48f569bf64e6988729ca01f18a480, type: 3}
 --- !u!1001 &4404375222296328779

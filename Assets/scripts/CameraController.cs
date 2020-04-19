@@ -36,7 +36,6 @@ public class CameraController : MonoBehaviour
 
         if (target == null) {
             target = GameManager.Instance.currentFish.transform;
-            Debug.Log(target);
         }
 
         offset = target.position - transform.position;
