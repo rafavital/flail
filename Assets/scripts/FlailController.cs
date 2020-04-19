@@ -11,6 +11,7 @@ public class FlailController : MonoBehaviour
     [SerializeField] private Vector2 minMaxX;
     [SerializeField] private Vector2 minMaxY;
     
+    private GameManager gm;
     private Fish fish;
     private Vector2 closestPuddle;
     private Rigidbody2D rb;
@@ -21,6 +22,7 @@ public class FlailController : MonoBehaviour
 
     void Awake()
     {
+        gm = GameManager.Instance;
         fish = GetComponent<Fish> ();
         rb = GetComponent<Rigidbody2D> ();
         bodyParts = GetComponentsInChildren<Rigidbody2D> ();
@@ -28,6 +30,8 @@ public class FlailController : MonoBehaviour
     }
     void Update()
     {
+        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return; 
+
         if (Input.GetKeyDown (KeyCode.Space) && fish.grounded) {
             closestPuddle = GetClosestPuddle ();
             flailDir = new Vector2 (
@@ -42,6 +46,8 @@ public class FlailController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
+
         if (flail) {
             rb.AddForce (flailDir * flailForce);
             for (int i = 0; i < bodyParts.Length; i++)

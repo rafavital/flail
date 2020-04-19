@@ -22,6 +22,7 @@ public class LaunchController : MonoBehaviour
         }
     }
 
+    private GameManager gm;
     private Fish fish;
     private Rigidbody2D rb;
     private Vector2 launchDir;
@@ -30,6 +31,7 @@ public class LaunchController : MonoBehaviour
 #endregion
     void Awake()
     {
+        gm = GameManager.Instance;
         CameraController cameraController = Camera.main.GetComponent<CameraController>();
         onChangeVelocityRatio.AddListener (cameraController.SetVelocityRatio);
         rb = GetComponent<Rigidbody2D> ();
@@ -39,6 +41,8 @@ public class LaunchController : MonoBehaviour
 
     void Update()
     {
+        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
+
         if (Input.GetMouseButtonDown (0)) {
             BeginLaunch ();
         } else if (Input.GetMouseButtonUp (0)) { 
@@ -52,6 +56,8 @@ public class LaunchController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
+
         VelocityRatio = rb.velocity.magnitude / maxSpeed;
         rb.velocity = new Vector2 (
             Mathf.Clamp (rb.velocity.x, - maxSpeed, maxSpeed),

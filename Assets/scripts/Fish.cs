@@ -22,18 +22,22 @@ public class Fish : MonoBehaviour
     private bool dying;
 
     public int Dashs {get => _dashs; set => _dashs = value;}
-
+    private GameManager gm;
+    private void Awake() {
+        gm = GameManager.Instance;
+    }
     private void Start() {
         Dashs = initialDashCount;
         Breath = initialBreath;
     }
 
     private void Update() {
+
         if (!puddle) {
-            Breath -= breathDecreaseRate;
+            Breath -= breathDecreaseRate * Time.deltaTime;
         }
 
-        if (Breath <= 0) Debug.Log("I'M DEAD, STOP THE GAME!");
+        if (Breath <= 0) gm.EndGame ();
     }
 
     public void UseDash () {
