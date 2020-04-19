@@ -772,6 +772,11 @@ PrefabInstance:
       propertyPath: onChangeVelocityRatio.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1905708073530950536, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: launchForce
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 1905708073530950537, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -846,17 +851,37 @@ PrefabInstance:
     - target: {fileID: 1905708073530950539, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
         type: 3}
       propertyPath: m_Name
-      value: telescope-fish
+      value: telescope-fish Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1905708073530950539, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1905708073530950541, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: breathDecreaseRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1905708073530950542, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
         type: 3}
       propertyPath: m_Radius
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxX.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxX.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxY.y
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1904c9bd9eccc118e7e7a2d8715fae, type: 3}
