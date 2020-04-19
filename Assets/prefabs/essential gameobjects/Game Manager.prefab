@@ -47,6 +47,7 @@ MonoBehaviour:
   onEndGame:
     m_PersistentCalls:
       m_Calls: []
+  currentFish: {fileID: 0}
 --- !u!114 &4128832368067016407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,4 +60,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbb09f995c11cdb5a475afd2538c854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breathSlider: {fileID: 0}
   endGameUI: {fileID: 0}

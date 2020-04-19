@@ -15,6 +15,7 @@ public class SlowMotionController : MonoBehaviour
     }
 
     public void EndSlowMo () {
+        if (Time.timeScale == 0) return; //TODO: make pause a game state and remove this
         Time.timeScale = 1;
         Time.fixedDeltaTime = standardFixed;
     }

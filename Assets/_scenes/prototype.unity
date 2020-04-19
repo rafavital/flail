@@ -145,6 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &206677470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 206677470, guid: 3524f537d7e54a2ddb6970ba4d9120ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013377152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303527558
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,14 +596,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4128832368067016407, guid: 04b48f569bf64e6988729ca01f18a480,
         type: 3}
+      propertyPath: breathSlider
+      value: 
+      objectReference: {fileID: 189471552}
+    - target: {fileID: 4128832368067016407, guid: 04b48f569bf64e6988729ca01f18a480,
+        type: 3}
       propertyPath: endGameUI
       value: 
       objectReference: {fileID: 2013377153}
     - target: {fileID: 4128832368067016407, guid: 04b48f569bf64e6988729ca01f18a480,
         type: 3}
-      propertyPath: breathSlider
+      propertyPath: pauseUI
       value: 
-      objectReference: {fileID: 189471552}
+      objectReference: {fileID: 206677470}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b48f569bf64e6988729ca01f18a480, type: 3}
 --- !u!1 &1202410300
