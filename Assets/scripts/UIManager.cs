@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Slider breathSlider;
     [SerializeField] private GameObject endGameUI;
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private TMP_Text timerText;
     private GameManager gm;
     private bool paused;
     private void Start() {
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
         if (breathSlider != null) gm.currentFish.onChangeBreath.AddListener (BreathValue);
     }
     private void Update() {
+        timerText.text = Time.time.ToString ("0:00");
         if (Input.GetKeyDown (KeyCode.Escape)) Pause ();
     }
 
@@ -29,7 +32,7 @@ public class UIManager : MonoBehaviour
     private void BreathValue (float breath) {
         breathSlider.value = breath/100;
     }
-    private void Pause () {
+    public void Pause () {
         if (paused) {
             Time.timeScale = 1;
             paused = false;
