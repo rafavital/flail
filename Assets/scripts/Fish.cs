@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomUnityEvents;
 
 public class Fish : MonoBehaviour
 {
@@ -8,14 +9,18 @@ public class Fish : MonoBehaviour
     public string puddleTag = "Puddle";
     [SerializeField] private int initialDashCount = 1;
     [SerializeField] private int initialBreath = 100;
-    [SerializeField] private float breathDecreaseRate = 0.1f;
+    [SerializeField] private float breathRate = 0.1f;
+    public FloatEvent onChangeBreath;
     
     private float _breath;
     public float Breath {
         get => _breath; 
         set {
-            _breath = value;
-            _breath = Mathf.Clamp (_breath, 0, initialBreath);
+            if (Breath != value) {
+                _breath = value;
+                _breath = Mathf.Clamp (_breath, 0, initialBreath);
+                onChangeBreath.Invoke (value);
+            }
         }
     }
     private int _dashs;
@@ -32,7 +37,9 @@ public class Fish : MonoBehaviour
     private void Update() {
 
         if (!puddle) {
-            Breath -= breathDecreaseRate * Time.deltaTime;
+            Breath -= breathRate * Time.deltaTime;
+        } else {
+            Breath += breathRate * Time.deltaTime;
         }
 
         if (Breath <= 0) gm.EndGame ();

@@ -9,15 +9,26 @@ public class GameManager : MonoBehaviour
 {
 #region SINGLETON
     public static GameManager Instance;
-    private void Awake() {
-        if (Instance != this) Destroy(Instance);
-        if (Instance == null) Instance = this;
-    }
+    
 #endregion
     public UnityEvent onEndGame;
     public enum GameStates {BEGINING, GAMEPLAY, END};
+    public Fish currentFish;
     private GameStates _gameState;
     public GameStates GameState {get => _gameState; private set => _gameState = value;}
+    private void Awake() {
+        if (Instance != this) Destroy(Instance);
+        if (Instance == null) Instance = this;
+
+        if (currentFish == null) {
+            Fish[] fishes = GameObject.FindObjectsOfType<Fish> ();
+            for (int i = 0; i < fishes.Length; i++)
+            {
+                var fish = fishes[i];
+                if (fish.gameObject.activeSelf) currentFish = fish;
+            }
+        }
+    }
     private void Start() {
         GameState = GameStates.BEGINING;
     }
