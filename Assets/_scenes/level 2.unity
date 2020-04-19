@@ -10168,7 +10168,7 @@ PrefabInstance:
     - target: {fileID: 3856611986729508953, guid: 3b82e8cb171b23545944a0313f554151,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.83
+      value: -11.835
       objectReference: {fileID: 0}
     - target: {fileID: 3856611986729508953, guid: 3b82e8cb171b23545944a0313f554151,
         type: 3}
@@ -15525,6 +15525,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: telescope-fish Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: forceMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: launchForce
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 228945762487137707, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
