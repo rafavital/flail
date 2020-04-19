@@ -16043,7 +16043,7 @@ PrefabInstance:
     - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: launchForce
-      value: 1800
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 228945762487137707, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
