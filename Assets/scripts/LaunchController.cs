@@ -6,10 +6,12 @@ using System;
 public class LaunchController : MonoBehaviour
 {
 #region VARIABLES
+    [SerializeField] private ForceMode2D forceMode;
     [SerializeField] private float launchForce;
+    [SerializeField] private float launchImpulse;
     [SerializeField] private float maxSpeed;
     [SerializeField] private LineRenderer launchPreview;
-    [SerializeField] private SlowMotionController slowMo;
+    [SerializeField] private SlowMotionController slowMo; //TODO: change this to an event system
 
     [HideInInspector] public FloatEvent onChangeVelocityRatio;
     private float _velocityRatio;
@@ -26,16 +28,21 @@ public class LaunchController : MonoBehaviour
     private GameManager gm;
     private Fish fish;
     private Rigidbody2D rb;
-    private Vector2 launchDir;
-    private Vector2 initialMousePos;
+    private Rigidbody2D[] bodyParts;
+    private Vector2 launchDir, initialPos;
+    private Camera cam;
     private bool isLaunching;
 #endregion
     void Start()
     {
         gm = GameManager.Instance;
-        CameraController cameraController = Camera.main.GetComponent<CameraController>();
-        onChangeVelocityRatio.AddListener (cameraController.SetVelocityRatio);
+
+        cam = Camera.main;
+        onChangeVelocityRatio.AddListener (cam.GetComponent<CameraController>().SetVelocityRatio);
+
         rb = GetComponent<Rigidbody2D> ();
+        bodyParts = GetComponentsInChildren<Rigidbody2D> ();
+
         fish = GetComponent <Fish> ();
         
         if (launchPreview != null)
@@ -43,6 +50,10 @@ public class LaunchController : MonoBehaviour
 
     }
 
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay (transform.position, launchDir);
+    }
     void Update()
     {
         if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
@@ -63,31 +74,44 @@ public class LaunchController : MonoBehaviour
         if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
 
         VelocityRatio = rb.velocity.magnitude / maxSpeed;
-        rb.velocity = new Vector2 (
-            Mathf.Clamp (rb.velocity.x, - maxSpeed, maxSpeed),
-            Mathf.Clamp (rb.velocity.y, - maxSpeed, maxSpeed)
-        );
+        rb.velocity = Vector2.ClampMagnitude (rb.velocity, maxSpeed);
     }
 
     private void BeginLaunch () {
         if (fish.Dashs > 0 || fish.puddle) {
             isLaunching = true;
+
             launchPreview.enabled = true;
-            initialMousePos = Input.mousePosition;
+            initialPos = Input.mousePosition;
             slowMo.StartSlowMo();
+            
         }
     }
     private void EndLaunch () {
-        launchDir = (Vector2) Input.mousePosition - initialMousePos;
+        launchDir = (Vector2) cam.ScreenToWorldPoint(Input.mousePosition) - (Vector2) transform.position;
+        Debug.DrawRay (transform.position, launchDir, Color.blue);
         int _dashs = fish.Dashs;
         bool _puddle = fish.puddle;
 
         if (_dashs > 0 || _puddle) {
+            isLaunching = false;
+
             launchPreview.enabled = false;
             slowMo.EndSlowMo();
-            isLaunching = false;
-            rb.velocity = Vector2.zero;
-            rb.AddForce (launchDir.normalized * launchForce);
+            foreach (var body in bodyParts)
+            {
+                body.velocity = Vector2.zero;
+                body.gravityScale = 0;
+            }
+            rb.AddForce (
+                launchDir.normalized * (forceMode == ForceMode2D.Force ? launchForce : launchImpulse), forceMode
+            );
+
+            foreach (var body in bodyParts)
+            {
+                body.gravityScale = 1;
+            }
+            
             if (!_puddle) fish.UseDash();
         }
     }
