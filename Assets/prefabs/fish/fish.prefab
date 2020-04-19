@@ -624,6 +624,8 @@ MonoBehaviour:
   grounded: 0
   puddleTag: Puddle
   initialDashCount: 0
+  initialBreath: 100
+  breathDecreaseRate: 3
 --- !u!114 &1905708073530950536
 MonoBehaviour:
   m_ObjectHideFlags: 0
