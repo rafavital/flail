@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using CustomUnityEvents;
+using System;
 
 [RequireComponent(typeof (Rigidbody2D), typeof (Fish))]
 public class LaunchController : MonoBehaviour
@@ -29,14 +30,17 @@ public class LaunchController : MonoBehaviour
     private Vector2 initialMousePos;
     private bool isLaunching;
 #endregion
-    void Awake()
+    void Start()
     {
         gm = GameManager.Instance;
         CameraController cameraController = Camera.main.GetComponent<CameraController>();
         onChangeVelocityRatio.AddListener (cameraController.SetVelocityRatio);
         rb = GetComponent<Rigidbody2D> ();
         fish = GetComponent <Fish> ();
-        launchPreview.enabled = false;
+        
+        if (launchPreview != null)
+          launchPreview.enabled = false;
+
     }
 
     void Update()

@@ -7,13 +7,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endGameUI;
     private GameManager gm;
     private void Start() {
-     
         gm = GameManager.Instance;
-        endGameUI.SetActive (false);
+        if (endGameUI != null) endGameUI.SetActive (false);
+
         gm.onEndGame.AddListener(EndGame);
     }
 
     private void EndGame () {
-        endGameUI.SetActive (true);
+        if (endGameUI != null)
+            endGameUI.SetActive (true);
     }
 }

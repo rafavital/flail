@@ -9,8 +9,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private int basePPU = 100;
     [SerializeField] IntEvent onChangePPU;
+    [SerializeField] private bool zoom;
     [Range(0,1), SerializeField] private float movementSmooth = 0.1f;
     [Range(0,1), SerializeField] private float zoomSmooth = 0.75f;
+    
     
     private Transform target;
     private int _ppu;
@@ -19,7 +21,7 @@ public class CameraController : MonoBehaviour
         set {
             if (_ppu != value) {
                 _ppu = value; 
-                onChangePPU.Invoke (value);
+                if (zoom) onChangePPU.Invoke (value);
             }
         }
     }
