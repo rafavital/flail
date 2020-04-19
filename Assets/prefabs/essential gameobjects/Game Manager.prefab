@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4128832368067016405}
   - component: {fileID: 4128832368067016406}
-  - component: {fileID: 4128832368067016407}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -48,17 +47,3 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentFish: {fileID: 0}
---- !u!114 &4128832368067016407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128832368067016404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbb09f995c11cdb5a475afd2538c854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  breathSlider: {fileID: 0}
-  endGameUI: {fileID: 0}

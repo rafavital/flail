@@ -12,6 +12,7 @@ public class Fish : MonoBehaviour
     [SerializeField] private int initialBreath = 100;
     [SerializeField] private float breathRate = 0.1f;
     public FloatEvent onChangeBreath;
+    public IntEvent onChangeDashCount;
     
     private float _breath;
     public float Breath {
@@ -26,9 +27,18 @@ public class Fish : MonoBehaviour
     }
 
     private int _dashs;
-    private bool dying;
+    public int Dashs {
+        get => _dashs; 
+        set {
+            if (Dashs != value) {
+                _dashs = value;
+                onChangeDashCount.Invoke (value);
+            }
 
-    public int Dashs {get => _dashs; set => _dashs = value;}
+        }
+    }
+
+    private bool dying;
     private GameManager gm;
     private void Start() {
         gm = GameManager.Instance;
