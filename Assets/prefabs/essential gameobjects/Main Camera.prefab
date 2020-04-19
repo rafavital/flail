@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7943703977d624dedb04e9145f5709aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePPU: 100
+  offset: {x: 0, y: 0, z: -10}
   onChangePPU:
     m_PersistentCalls:
       m_Calls:
