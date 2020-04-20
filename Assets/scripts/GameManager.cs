@@ -20,16 +20,10 @@ public class GameManager : MonoBehaviour
         if (Instance != this) Destroy(Instance);
         if (Instance == null) Instance = this;
 
-        if (currentFish == null) {
-            Fish[] fishes = GameObject.FindObjectsOfType<Fish> ();
-            for (int i = 0; i < fishes.Length; i++)
-            {
-                var fish = fishes[i];
-                if (fish.gameObject.activeSelf) currentFish = fish;
-            }
-        }
+        DontDestroyOnLoad (gameObject);
     }
     private void Start() {
+       
         GameState = GameStates.BEGINING;
     }
     private void Update() {
@@ -45,5 +39,14 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame () {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+    }
+
+    public void GetFish () {
+        Fish[] fishes = GameObject.FindObjectsOfType<Fish> ();
+        for (int i = 0; i < fishes.Length; i++)
+        {
+            var fish = fishes[i];
+            if (fish.gameObject.activeSelf) currentFish = fish;
+        }
     }
 }

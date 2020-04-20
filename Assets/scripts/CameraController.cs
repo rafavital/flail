@@ -30,12 +30,11 @@ public class CameraController : MonoBehaviour
     public float VelocityRatio { get => _velocityRatio; set => _velocityRatio = value; }
     private Vector3 vel;
     private float refSpeed;
+    private GameManager gm;
     void Start()
     {
-
-        if (target == null) {
-            target = GameManager.Instance.currentFish.transform;
-        }
+        gm = GameManager.Instance;
+        Invoke("GetTarget", 2f);
 
         // offset = target.position - transform.position;
     }
@@ -46,6 +45,10 @@ public class CameraController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (target == null) {
+            gm.GetFish ();
+            target = gm.currentFish.transform;
+        } 
         Vector3 desiredPos = target.position + offset;
         transform.position = Vector3.SmoothDamp (transform.position, desiredPos, ref vel, movementSmooth);
     }
@@ -53,4 +56,11 @@ public class CameraController : MonoBehaviour
     public void SetVelocityRatio (float ratio) {
         VelocityRatio = ratio;
     }
+
+    private void GetTarget () {
+        target = gm.currentFish.transform;
+
+    }
+
+   
 }
