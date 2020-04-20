@@ -1212,6 +1212,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 29.513845
       objectReference: {fileID: 0}
+    - target: {fileID: 4404375221847983946, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404375221847983947, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b53ea9f14385704d8a8fd3e0eb2348c, type: 3}
 --- !u!4 &97198655 stripped
@@ -7838,7 +7848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732913750}
   - component: {fileID: 732913749}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16935,6 +16945,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 779.6764
       objectReference: {fileID: 0}
+    - target: {fileID: 4404375221847983947, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b53ea9f14385704d8a8fd3e0eb2348c, type: 3}
 --- !u!4 &1602846880 stripped
@@ -18187,6 +18202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 779.6764
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404375221847983947, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b53ea9f14385704d8a8fd3e0eb2348c, type: 3}
@@ -21788,7 +21808,7 @@ GameObject:
   - component: {fileID: 1973604307}
   - component: {fileID: 1973604309}
   - component: {fileID: 1973604308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tilemap_Terreno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
