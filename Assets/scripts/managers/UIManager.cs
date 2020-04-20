@@ -8,30 +8,42 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Slider breathSlider;
     [SerializeField] private GameObject endGameUI;
+    [SerializeField] private GameObject endLevelUI;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject[] dashIcons;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text endTimerText;
     private GameManager gm;
     private LevelManager lm;
     private bool paused;
+    private float timer;
 
     private void Start() {
         gm = GameManager.Instance;
         lm = LevelManager.Instance;
-        gm.onEndGame.AddListener(EndGame);
+
+        gm.onLoseGame.AddListener(LoseGame);
+        gm.onEndLevel.AddListener(EndLevel);
 
         if (endGameUI != null) endGameUI.SetActive (false);
         if (pauseUI != null) pauseUI.SetActive (false);
+        if (endLevelUI != null) endLevelUI.SetActive (false);
         Invoke("SetListeners",2f);
+        timer = 0;
     }
     private void Update() {
-        timerText.text = Time.time.ToString ("0:00");
+        timerText.text = (int)gm.timer/60 + ":" + Mathf.Round (gm.timer % 60);
         if (Input.GetKeyDown (KeyCode.Escape)) Pause ();
     }
 
-    private void EndGame () {
+    private void LoseGame () {
         if (endGameUI != null)
             endGameUI.SetActive (true);
+    }
+    private void EndLevel () {
+        if (endLevelUI != null)
+            endLevelUI.SetActive (true);
+        endTimerText.text = "your time was: " + (int)gm.timer/60 + ":" + Mathf.Round (gm.timer % 60);
     }
     private void BreathValue (float breath) {
         breathSlider.value = breath/100;

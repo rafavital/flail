@@ -68,7 +68,7 @@ public class FlailController : MonoBehaviour
         bodyParts = fish.rbParts;
         puddles = GameObject.FindGameObjectsWithTag(fish.puddleTag);
 
-        gm.onEndGame.AddListener (EndGame);
+        gm.onEndLevel.AddListener (EndGame);
     }
     void Update()
     {

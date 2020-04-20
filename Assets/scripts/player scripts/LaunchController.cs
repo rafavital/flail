@@ -68,7 +68,7 @@ public class LaunchController : MonoBehaviour
         
         bodyParts = fish.rbParts;
         
-        gm.onEndGame.AddListener (EndGame);
+        gm.onEndLevel.AddListener (EndGame);
     }
     void Update()
     {
