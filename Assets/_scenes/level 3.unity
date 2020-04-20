@@ -12417,18 +12417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 46810271, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1568603157, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1883315268, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: m_Name
@@ -12504,18 +12492,7 @@ PrefabInstance:
       propertyPath: breathDecreaseRate
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 228945763210215913, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228945763587786529, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 29364110, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
 --- !u!1001 &1499522616
 PrefabInstance:
