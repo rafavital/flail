@@ -11620,6 +11620,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4404375221847983797, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
+	type: 3}
+    - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: m_Name
       value: floor (323)
@@ -11692,6 +11694,9 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b53ea9f14385704d8a8fd3e0eb2348c, type: 3}
 --- !u!1001 &1167155184
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
+--- !u!1001 &1499522616
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
