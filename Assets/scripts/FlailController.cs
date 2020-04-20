@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomUnityEvents;
 
 [RequireComponent(typeof (Rigidbody2D), typeof (Fish))]
 public class FlailController : MonoBehaviour
@@ -28,7 +29,19 @@ public class FlailController : MonoBehaviour
 
     [Tooltip ("The noise in the flail x direction, no noise if x and y are the same")]
     [SerializeField] private Vector2 minMaxY;
-#endregion
+
+    [SerializeField] private FloatEvent onChangeFlailAmount;
+
+    private float flailAmount;
+    public float FlailAmount {
+        get => flailAmount;
+        set {
+            if (FlailAmount != value) {
+                flailAmount = value;
+                onChangeFlailAmount.Invoke (value);
+            }
+        }
+    }
 
     private GameManager gm;
     private Fish fish;
@@ -38,7 +51,8 @@ public class FlailController : MonoBehaviour
     private Vector2 flailDir;
     private GameObject[] puddles;
     private bool flail, grounded;
-    private float flailAmount, timer;
+    private float timer;
+#endregion
 
     void Start()
     {
@@ -51,14 +65,12 @@ public class FlailController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= resetTimer) flailAmount = 0;
-
-        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return; 
+        if (timer >= resetTimer) FlailAmount = 0;
 
         if (Input.GetKeyDown (KeyCode.Space) && fish.grounded) {
             timer = 0;
-            flailAmount += flailIncrement;
-            flailAmount = Mathf.Clamp01(flailAmount);
+            FlailAmount += flailIncrement;
+            FlailAmount = Mathf.Clamp01(FlailAmount);
 
             closestPuddle = GetClosestPuddle ();
             flailDir = new Vector2 (
@@ -73,10 +85,8 @@ public class FlailController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
-
         if (flail) {
-            rb.AddForce (flailDir * flailForce * flailAmount);
+            rb.AddForce (flailDir * flailForce * FlailAmount);
             for (int i = 0; i < bodyParts.Length; i++)
             {
                 bodyParts[i].AddTorque (Random.Range (-flailTorque, flailTorque));

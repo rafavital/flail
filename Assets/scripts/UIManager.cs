@@ -12,10 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] dashIcons;
     [SerializeField] private TMP_Text timerText;
     private GameManager gm;
+    private LevelManager lm;
     private bool paused;
 
     private void Start() {
         gm = GameManager.Instance;
+        lm = LevelManager.Instance;
         gm.onEndGame.AddListener(EndGame);
 
         if (endGameUI != null) endGameUI.SetActive (false);
@@ -52,6 +54,17 @@ public class UIManager : MonoBehaviour
             paused = true;
             if (pauseUI != null) pauseUI.SetActive (true);
         }
+    }
+    public void ReturnHome () {
+        if (paused) Pause();
+        lm.LoadLevel (0);
+    }
+    public void RestartLevel () {
+        if (paused) Pause();
+        lm.LoadLevel (lm.GetLoadedLevel ());
+    }
+    public void QuitGame () {
+        Application.Quit ();
     }
 
     private void SetListeners () {
