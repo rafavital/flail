@@ -20,9 +20,7 @@ public class UIManager : MonoBehaviour
 
         if (endGameUI != null) endGameUI.SetActive (false);
         if (pauseUI != null) pauseUI.SetActive (false);
-        if (breathSlider != null) gm.currentFish.onChangeBreath.AddListener (BreathValue);
-        if (dashIcons != null) gm.currentFish.onChangeDashCount.AddListener (DashCount);
-        
+        Invoke("SetListeners",2f);
     }
     private void Update() {
         timerText.text = Time.time.ToString ("0:00");
@@ -54,8 +52,10 @@ public class UIManager : MonoBehaviour
             paused = true;
             if (pauseUI != null) pauseUI.SetActive (true);
         }
+    }
 
-        
-
+    private void SetListeners () {
+        if (breathSlider != null) gm.currentFish.onChangeBreath.AddListener (BreathValue);
+        if (dashIcons != null) gm.currentFish.onChangeDashCount.AddListener (DashCount);
     }
 }
