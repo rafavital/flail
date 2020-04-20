@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 096d07cc4a460d34e914e564d960f2c9, type: 3}
   - {fileID: 8300000, guid: 105231ad5e4b7094291fac427f387858, type: 3}
   - {fileID: 8300000, guid: 083342b3bb1249b41bd1ee4e8beb845c, type: 3}
-  volume: 1
+  volume: 0.75
   pitch: 1
   source: {fileID: 0}
   playOnAwake: 0

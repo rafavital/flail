@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: dash
   clips:
-  - {fileID: 8300000, guid: cdab0eff3f642e64b9998653dae711bd, type: 3}
-  - {fileID: 8300000, guid: 0deb48731be52a34380f1bcbf21b7a60, type: 3}
-  - {fileID: 8300000, guid: db5d54e76bd8c6e45b2bea650761c6e2, type: 3}
+  - {fileID: 8300000, guid: ea9327ddcf346be0797cecdc6bf5f6cb, type: 3}
+  - {fileID: 8300000, guid: cdebc90f09aa98c49ae20c7f84d44913, type: 3}
+  - {fileID: 8300000, guid: 8ff7be42fdc873526b95673ddd0bb104, type: 3}
   volume: 1
-  pitch: 1
+  pitch: 1.75
   source: {fileID: 0}
   playOnAwake: 0
   loop: 0
