@@ -43,4 +43,9 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    internal void PlaySound(object flailSoundName)
+    {
+        throw new NotImplementedException();
+    }
 }

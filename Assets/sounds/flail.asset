@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ba989c98fd1ea099c214cbfd49d440, type: 3}
-  m_Name: dash
+  m_Name: flail
   m_EditorClassIdentifier: 
-  soundName: dash
+  soundName: flail
   clips:
-  - {fileID: 8300000, guid: cdab0eff3f642e64b9998653dae711bd, type: 3}
-  - {fileID: 8300000, guid: 0deb48731be52a34380f1bcbf21b7a60, type: 3}
-  - {fileID: 8300000, guid: db5d54e76bd8c6e45b2bea650761c6e2, type: 3}
+  - {fileID: 8300000, guid: 92e036640d25ac14db0dd1d101b56d45, type: 3}
+  - {fileID: 8300000, guid: 596777f70cf1677489f9273b018e0b7e, type: 3}
+  - {fileID: 8300000, guid: 096d07cc4a460d34e914e564d960f2c9, type: 3}
+  - {fileID: 8300000, guid: 105231ad5e4b7094291fac427f387858, type: 3}
+  - {fileID: 8300000, guid: 083342b3bb1249b41bd1ee4e8beb845c, type: 3}
   volume: 1
   pitch: 1
   source: {fileID: 0}

@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ba989c98fd1ea099c214cbfd49d440, type: 3}
-  m_Name: dash
+  m_Name: aquario
   m_EditorClassIdentifier: 
-  soundName: dash
+  soundName: aquario
   clips:
-  - {fileID: 8300000, guid: cdab0eff3f642e64b9998653dae711bd, type: 3}
-  - {fileID: 8300000, guid: 0deb48731be52a34380f1bcbf21b7a60, type: 3}
-  - {fileID: 8300000, guid: db5d54e76bd8c6e45b2bea650761c6e2, type: 3}
+  - {fileID: 8300000, guid: 45e95e8effc4e1b48b5337bf0251d44c, type: 3}
   volume: 1
   pitch: 1
   source: {fileID: 0}

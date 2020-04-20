@@ -7,7 +7,7 @@ using CustomUnityEvents;
 public class FlailController : MonoBehaviour
 {
 #region VARIABLES
-    [Header ("Force and Torque values")]
+    [Header ("Flail physics parameters")]
     
     [Tooltip ("The force that will be added to the fish in the direction of the puddle")] 
     [SerializeField] private float flailForce = 600;
@@ -29,6 +29,8 @@ public class FlailController : MonoBehaviour
 
     [Tooltip ("The noise in the flail x direction, no noise if x and y are the same")]
     [SerializeField] private Vector2 minMaxY;
+    [Tooltip ("The exact name of the flail sound")]
+    [SerializeField] private string flailSoundName = "flail";
 
     [SerializeField] private FloatEvent onChangeFlailAmount;
 
@@ -44,6 +46,7 @@ public class FlailController : MonoBehaviour
     }
 
     private GameManager gm;
+    private AudioManager am;
     private Fish fish;
     private Vector2 closestPuddle;
     private Rigidbody2D rb;
@@ -52,11 +55,14 @@ public class FlailController : MonoBehaviour
     private GameObject[] puddles;
     private bool flail, grounded;
     private float timer;
-#endregion
+    
+    #endregion
 
     void Start()
     {
         gm = GameManager.Instance;
+        am = AudioManager.Instance;
+        
         fish = GetComponent<Fish> ();
         rb = GetComponent<Rigidbody2D> ();
         bodyParts = fish.rbParts;
@@ -86,6 +92,7 @@ public class FlailController : MonoBehaviour
 
     private void FixedUpdate() {
         if (flail) {
+            am.PlaySound (flailSoundName);
             rb.AddForce (flailDir * flailForce * FlailAmount);
             for (int i = 0; i < bodyParts.Length; i++)
             {
