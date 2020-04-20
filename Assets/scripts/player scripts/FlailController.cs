@@ -67,6 +67,8 @@ public class FlailController : MonoBehaviour
         rb = GetComponent<Rigidbody2D> ();
         bodyParts = fish.rbParts;
         puddles = GameObject.FindGameObjectsWithTag(fish.puddleTag);
+
+        gm.onEndGame.AddListener (EndGame);
     }
     void Update()
     {
@@ -115,5 +117,8 @@ public class FlailController : MonoBehaviour
             }
         }
         return closestPuddle;
+    }
+    private void EndGame () {
+        this.enabled = false;
     }
 }

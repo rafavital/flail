@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 3672146868425383379}
   m_Layer: 8
   m_Name: fish
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,6 +633,7 @@ MonoBehaviour:
   onChangeDashCount:
     m_PersistentCalls:
       m_Calls: []
+  splashSoundName: splash
 --- !u!114 &1905708073530950536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +650,7 @@ MonoBehaviour:
   launchForce: 1200
   launchImpulse: 25
   maxSpeed: 40
+  dashSoundName: dash
   launchPreview: {fileID: 1977480725}
   slowMo: {fileID: 1905708073530950540}
   onChangeVelocityRatio:
@@ -681,9 +683,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flailForce: 600
   flailTorque: 150
+  resetTimer: 5
+  flailIncrement: 0.1
   puddleTag: Puddle
   minMaxX: {x: 0.5, y: 1}
   minMaxY: {x: 0.2, y: 0.7}
+  flailSoundName: flail
+  onChangeFlailAmount:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3672146868425383379
 MonoBehaviour:
   m_ObjectHideFlags: 0

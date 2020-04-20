@@ -65,12 +65,8 @@ public class LaunchController : MonoBehaviour
           launchPreview.enabled = false;
         
         bodyParts = fish.rbParts;
-
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay (transform.position, launchDir);
+        
+        gm.onEndGame.AddListener (EndGame);
     }
     void Update()
     {
@@ -131,5 +127,8 @@ public class LaunchController : MonoBehaviour
             
             if (!_puddle) fish.UseDash();
         }
+    }
+    private void EndGame () {
+        this.enabled = false;
     }
 }
