@@ -16689,6 +16689,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 4404375221847983797, guid: 6b53ea9f14385704d8a8fd3e0eb2348c,
 =======
     - target: {fileID: 46810271, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
@@ -16703,6 +16704,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> 8206eafc691b73d08be2043caca2cce5f245ec0b
     - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
 >>>>>>> 0c23a5fd2024c1f6bc838c8121681817fd58c81b
         type: 3}
@@ -16775,6 +16778,7 @@ PrefabInstance:
       value: 35.70206
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b53ea9f14385704d8a8fd3e0eb2348c, type: 3}
 --- !u!1001 &1639801184
@@ -16791,6 +16795,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 29364110, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
+=======
+    m_RemovedComponents: []
+>>>>>>> 8206eafc691b73d08be2043caca2cce5f245ec0b
   m_SourcePrefab: {fileID: 100100000, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}
 --- !u!1001 &1499522616
 >>>>>>> 0c23a5fd2024c1f6bc838c8121681817fd58c81b
