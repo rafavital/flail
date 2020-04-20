@@ -6,14 +6,28 @@ using System;
 public class LaunchController : MonoBehaviour
 {
 #region VARIABLES
+    [Header ("Launch physics parameters")]
+    [Tooltip ("the type of the force added to the rigidbody on launch")]
     [SerializeField] private ForceMode2D forceMode;
+    [Tooltip ("the force added to the rigidbody if Force Mode is set to 'Force'")]
     [SerializeField] private float launchForce;
+    [Tooltip ("the force added to the rigidbody if Force Mode is set to 'Impulse'")]
     [SerializeField] private float launchImpulse;
+    [Tooltip ("the maximum speed of the fish")]
     [SerializeField] private float maxSpeed;
+    
+    [Space, Header ("Other parameters")]
+    [Tooltip ("the name of the sound that plays when there is a launch")]
+    [SerializeField] private string dashSoundName = "dash";
+    [Tooltip ("reference to the Line Renderer of the fish")]
     [SerializeField] private LineRenderer launchPreview;
+    [Tooltip ("this actually shouldn't be here, so don't touch it!")]
     [SerializeField] private SlowMotionController slowMo; //TODO: change this to an event system
+    
 
+    [Space, Header ("Events")]
     [HideInInspector] public FloatEvent onChangeVelocityRatio;
+
     private float _velocityRatio;
     public float VelocityRatio {
         get => _velocityRatio;
@@ -26,16 +40,19 @@ public class LaunchController : MonoBehaviour
     }
 
     private GameManager gm;
+    private AudioManager am;
     private Fish fish;
     private Rigidbody2D rb;
     private Rigidbody2D[] bodyParts;
     private Vector2 launchDir, initialPos;
     private Camera cam;
     private bool isLaunching;
-#endregion
+    
+    #endregion
     void Start()
     {
         gm = GameManager.Instance;
+        am = AudioManager.Instance;
 
         cam = Camera.main;
         onChangeVelocityRatio.AddListener (cam.GetComponent<CameraController>().SetVelocityRatio);
@@ -110,6 +127,7 @@ public class LaunchController : MonoBehaviour
             rb.AddForce (
                 launchDir.normalized * (forceMode == ForceMode2D.Force ? launchForce : launchImpulse), forceMode
             );
+            am.PlaySound (dashSoundName);
             
             if (!_puddle) fish.UseDash();
         }
