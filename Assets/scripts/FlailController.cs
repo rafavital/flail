@@ -5,12 +5,31 @@ using UnityEngine;
 [RequireComponent(typeof (Rigidbody2D), typeof (Fish))]
 public class FlailController : MonoBehaviour
 {
-    [SerializeField] private float flailForce = 600;
-    [SerializeField] private float flailTorque;
-    [SerializeField] private string puddleTag;
-    [SerializeField] private Vector2 minMaxX;
-    [SerializeField] private Vector2 minMaxY;
+#region VARIABLES
+    [Header ("Force and Torque values")]
     
+    [Tooltip ("The force that will be added to the fish in the direction of the puddle")] 
+    [SerializeField] private float flailForce = 600;
+    
+    [Tooltip ("The torque that will be added to the other body parts to make it look like the fish is flailing (shouldn't be a big value, or else it will add more movement to the fish)")]
+    [SerializeField] private float flailTorque = 150;
+    
+    [Space, Header ("Flail increment parameters")]
+    [Tooltip ("The time it takes for the flail to reset")]
+    [SerializeField] private float resetTimer = 5f; 
+    [Tooltip ("The amount that each key press adds to the flail amount which goes from 0 (no movement) to 1 (full movement)")]
+    [Range (0,1), SerializeField] private float flailIncrement = 0.1f; 
+    [Space, Header ("Other parameters")]
+    [Tooltip("The exact name of the puddle tag")]
+    [SerializeField] private string puddleTag;
+
+    [Tooltip ("The noise in the flail x direction, no noise if x and y are the same")]
+    [SerializeField] private Vector2 minMaxX;
+
+    [Tooltip ("The noise in the flail x direction, no noise if x and y are the same")]
+    [SerializeField] private Vector2 minMaxY;
+#endregion
+
     private GameManager gm;
     private Fish fish;
     private Vector2 closestPuddle;
@@ -19,6 +38,7 @@ public class FlailController : MonoBehaviour
     private Vector2 flailDir;
     private GameObject[] puddles;
     private bool flail, grounded;
+    private float flailAmount, timer;
 
     void Start()
     {
@@ -30,9 +50,16 @@ public class FlailController : MonoBehaviour
     }
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer >= resetTimer) flailAmount = 0;
+
         if (gm.GameState != GameManager.GameStates.GAMEPLAY) return; 
 
         if (Input.GetKeyDown (KeyCode.Space) && fish.grounded) {
+            timer = 0;
+            flailAmount += flailIncrement;
+            flailAmount = Mathf.Clamp01(flailAmount);
+
             closestPuddle = GetClosestPuddle ();
             flailDir = new Vector2 (
                 Mathf.Sign (closestPuddle.x - transform.position.x) * Random.Range (minMaxX.x,minMaxX.y),
@@ -49,7 +76,7 @@ public class FlailController : MonoBehaviour
         if (gm.GameState != GameManager.GameStates.GAMEPLAY) return;
 
         if (flail) {
-            rb.AddForce (flailDir * flailForce);
+            rb.AddForce (flailDir * flailForce * flailAmount);
             for (int i = 0; i < bodyParts.Length; i++)
             {
                 bodyParts[i].AddTorque (Random.Range (-flailTorque, flailTorque));

@@ -1283,6 +1283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flailForce: 600
   flailTorque: 150
+  resetTimer: 5
+  flailIncrement: 0.1
   puddleTag: Puddle
   minMaxX: {x: 0.2, y: 0.5}
   minMaxY: {x: 0.2, y: 0.8}
@@ -1480,6 +1482,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 228945762088137655, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: flailIncrement
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: m_Name
