@@ -56,12 +56,12 @@ public class UIManager : MonoBehaviour
         }
     }
     public void ReturnHome () {
-        if (paused) Pause();
         lm.LoadLevel (0);
+        if (paused) Pause();
     }
     public void RestartLevel () {
-        if (paused) Pause();
         lm.LoadLevel (lm.GetLoadedLevel ());
+        if (paused) Pause();
     }
     public void QuitGame () {
         Application.Quit ();

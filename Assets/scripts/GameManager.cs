@@ -7,24 +7,18 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-#region SINGLETON
     public static GameManager Instance;
-    
-#endregion
+
     public UnityEvent onEndGame;
     public enum GameStates {BEGINING, GAMEPLAY, END};
     public Fish currentFish;
-    private GameStates _gameState;
+    [SerializeField] private GameStates _gameState;
     public GameStates GameState {get => _gameState; private set => _gameState = value;}
     private void Awake() {
-        if (Instance != this) Destroy(Instance);
-        if (Instance == null) Instance = this;
+        if (Instance != this && Instance != null) Destroy(Instance.gameObject); 
+        else if (Instance == null) Instance = this;
 
         DontDestroyOnLoad (gameObject);
-    }
-    private void Start() {
-       
-        GameState = GameStates.BEGINING;
     }
     private void Update() {
         //TODO REMOVE THIS
