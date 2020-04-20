@@ -263,7 +263,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &1905708072499900700
 HingeJoint2D:
@@ -406,7 +406,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &1905708072810166212
 HingeJoint2D:
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277bab138bac080e49914ac7f7f4dda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMode: 0
+  forceMode: 1
   launchForce: 1200
   launchImpulse: 25
   maxSpeed: 40
