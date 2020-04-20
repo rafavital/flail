@@ -13,6 +13,7 @@ public class Fish : MonoBehaviour
     [SerializeField] private float breathRate = 0.1f;
     public FloatEvent onChangeBreath;
     public IntEvent onChangeDashCount;
+    [SerializeField] private string splashSoundName = "splash";
     
     private float _breath;
     public float Breath {
@@ -40,8 +41,12 @@ public class Fish : MonoBehaviour
 
     private bool dying;
     private GameManager gm;
+    private AudioManager am;
+
     private void Start() {
         gm = GameManager.Instance;
+        am = AudioManager.Instance;
+
         Dashs = initialDashCount;
         Breath = initialBreath;
 
@@ -68,6 +73,7 @@ public class Fish : MonoBehaviour
         if (other.CompareTag (puddleTag)) {
             Dashs++;
             puddle = true;
+            am.PlaySound (splashSoundName);
         }
     }
     private void OnTriggerExit2D(Collider2D other) {

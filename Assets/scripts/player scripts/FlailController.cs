@@ -62,7 +62,7 @@ public class FlailController : MonoBehaviour
     {
         gm = GameManager.Instance;
         am = AudioManager.Instance;
-        
+
         fish = GetComponent<Fish> ();
         rb = GetComponent<Rigidbody2D> ();
         bodyParts = fish.rbParts;
@@ -73,7 +73,7 @@ public class FlailController : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= resetTimer) FlailAmount = 0;
 
-        if (Input.GetKeyDown (KeyCode.Space) && fish.grounded) {
+        if (Input.GetKeyDown (KeyCode.Space) && fish.grounded && !fish.puddle) {
             timer = 0;
             FlailAmount += flailIncrement;
             FlailAmount = Mathf.Clamp01(FlailAmount);
