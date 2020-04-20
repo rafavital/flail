@@ -5630,25 +5630,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 228945762088137655, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: flailIncrement
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: m_Name
       value: telescope-fish
-      objectReference: {fileID: 0}
-    - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228945762487137706, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: forceMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228945762487137707, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
@@ -5704,11 +5689,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 228945762487137711, guid: e4f45c19b0aa8fb25a624fc7f9243254,
-        type: 3}
-      propertyPath: initialDashCount
-      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f45c19b0aa8fb25a624fc7f9243254, type: 3}

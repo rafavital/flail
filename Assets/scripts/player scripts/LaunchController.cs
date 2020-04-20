@@ -19,6 +19,8 @@ public class LaunchController : MonoBehaviour
     [Space, Header ("Other parameters")]
     [Tooltip ("the name of the sound that plays when there is a launch")]
     [SerializeField] private string dashSoundName = "dash";
+    [Tooltip ("bubbles particle system")]
+    [SerializeField] private ParticleSystem bubbles;
     [Tooltip ("reference to the Line Renderer of the fish")]
     [SerializeField] private LineRenderer launchPreview;
     [Tooltip ("this actually shouldn't be here, so don't touch it!")]
@@ -124,6 +126,7 @@ public class LaunchController : MonoBehaviour
                 launchDir.normalized * (forceMode == ForceMode2D.Force ? launchForce : launchImpulse), forceMode
             );
             am.PlaySound (dashSoundName);
+            bubbles.Play ();
             
             if (!_puddle) fish.UseDash();
         }
