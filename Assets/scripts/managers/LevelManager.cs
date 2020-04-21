@@ -11,9 +11,11 @@ public class LevelManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
     public void LoadLevel (int levelId) {
+        GameManager.Instance.ResetTimer ();
         SceneManager.LoadScene (levelId);
     }
     public void LoadLevel (string levelName) {
+        GameManager.Instance.ResetTimer ();
         SceneManager.LoadScene (levelName);
     }
     public int GetLoadedLevel () {
