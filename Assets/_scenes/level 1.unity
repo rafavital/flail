@@ -33757,7 +33757,7 @@ PrefabInstance:
     - target: {fileID: 7003478938910431725, guid: 4f61455f330940203a46ccd7494f83cd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7003478938910431726, guid: 4f61455f330940203a46ccd7494f83cd,
         type: 3}
@@ -46701,6 +46701,16 @@ PrefabInstance:
     - target: {fileID: 228945762088137655, guid: e4f45c19b0aa8fb25a624fc7f9243254,
         type: 3}
       propertyPath: minMaxY.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 228945762088137655, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: flailForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 228945762088137655, guid: e4f45c19b0aa8fb25a624fc7f9243254,
+        type: 3}
+      propertyPath: resetTimer
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 228945762487137705, guid: e4f45c19b0aa8fb25a624fc7f9243254,
@@ -58349,7 +58359,7 @@ PrefabInstance:
     - target: {fileID: 4128832368067016404, guid: 04b48f569bf64e6988729ca01f18a480,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128832368067016405, guid: 04b48f569bf64e6988729ca01f18a480,
         type: 3}

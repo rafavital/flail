@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject prompt;
+    [SerializeField] private GameObject beginPrompt;
     [SerializeField] private GameObject levelSelection;
     private float _flail ;
     public float Flail {
@@ -28,10 +28,10 @@ public class MenuUIManager : MonoBehaviour
     }
     private void Update() {
         if (gm.GameState == GameManager.GameStates.GAMEPLAY) {
-            prompt.SetActive (false);
+            beginPrompt.SetActive (false);
             levelSelection.SetActive (true);
         } else {
-            prompt.SetActive (true);
+            beginPrompt.SetActive (true);
             levelSelection.SetActive (false);
         }
     }

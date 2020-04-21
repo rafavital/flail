@@ -40,6 +40,7 @@ public class FlailController : MonoBehaviour
         set {
             if (FlailAmount != value) {
                 flailAmount = value;
+                flailAmount = Mathf.Clamp01(flailAmount);
                 onChangeFlailAmount.Invoke (value);
             }
         }
@@ -73,27 +74,29 @@ public class FlailController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= resetTimer) FlailAmount = 0;
+        if (timer >= resetTimer) FlailAmount -= Time.deltaTime;
 
-        if (Input.GetKeyDown (KeyCode.Space) && fish.grounded && !fish.puddle) {
-            timer = 0;
+        flail = false;
+        if (Input.GetKeyDown (KeyCode.Space))  {
             FlailAmount += flailIncrement;
-            FlailAmount = Mathf.Clamp01(FlailAmount);
 
-            closestPuddle = GetClosestPuddle ();
-            flailDir = new Vector2 (
-                Mathf.Sign (closestPuddle.x - transform.position.x) * Random.Range (minMaxX.x,minMaxX.y),
-                Random.Range (minMaxY.x, minMaxY.y)
-            );
+            if (fish.grounded && !fish.puddle) {
+                closestPuddle = GetClosestPuddle ();
+                flailDir = new Vector2 (
+                    Mathf.Sign (closestPuddle.x - transform.position.x) * Random.Range (minMaxX.x,minMaxX.y),
+                    Random.Range (minMaxY.x, minMaxY.y)
+                );
             
-            flail = true;
-        } else {
-            flail = false;
+                flail = true;
+            } else flail = false;
+        } else if (Input.GetKeyUp (KeyCode.Space)) {
+            timer = 0;
+
         }
     }
 
     private void FixedUpdate() {
-        if (flail) {
+        if (flail && fish.grounded && !fish.puddle) {
             am.PlaySound (flailSoundName);
             rb.AddForce (flailDir * flailForce * FlailAmount);
             for (int i = 0; i < bodyParts.Length; i++)
