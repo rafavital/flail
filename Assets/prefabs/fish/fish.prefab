@@ -651,6 +651,7 @@ MonoBehaviour:
   launchImpulse: 25
   maxSpeed: 40
   dashSoundName: dash
+  bubbles: {fileID: 0}
   launchPreview: {fileID: 1977480725}
   slowMo: {fileID: 1905708073530950540}
   onChangeVelocityRatio:
