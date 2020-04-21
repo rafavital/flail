@@ -5624,8 +5624,39 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: flailForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxX.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxX.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxY.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+        type: 3}
+      propertyPath: minMaxY.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1904c9bd9eccc118e7e7a2d8715fae, type: 3}
+--- !u!4 &228945762487137707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1905708073530950537, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1828197086454642210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &228945763587786559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1905708072499900701, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
@@ -5635,12 +5666,6 @@ Transform:
 --- !u!50 &228945763587786529 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1905708072499900675, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-    type: 3}
-  m_PrefabInstance: {fileID: 1828197086454642210}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &228945762487137707 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1905708073530950537, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
     type: 3}
   m_PrefabInstance: {fileID: 1828197086454642210}
   m_PrefabAsset: {fileID: 0}
