@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     
-    public enum GameStates {BEGINING, GAMEPLAY, END};
+    public enum GameStates {BEGINING, GAMEPLAY, END, GAMEOVER};
     public Fish currentFish;
     [SerializeField] private GameStates _gameState;
     public float timer {get; private set;}
@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     public void EndGame () {
         GameState = GameStates.END;
         onEndLevel.Invoke();
+    }
+    public void LoseGame()
+    {
+        onLoseGame.Invoke();
     }
     public void RestartGame () {
         timer = 0;

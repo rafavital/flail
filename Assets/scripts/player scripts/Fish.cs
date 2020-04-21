@@ -63,7 +63,11 @@ public class Fish : MonoBehaviour
             Breath += breathRate * Time.deltaTime;
         }
 
-        if (Breath <= 0) gm.EndGame ();
+        if (Breath <= 0)
+        {
+            gm.LoseGame();
+            gameObject.SetActive(false);
+        }
     }
 
     public void UseDash () {
