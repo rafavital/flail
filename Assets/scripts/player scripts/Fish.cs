@@ -52,6 +52,7 @@ public class Fish : MonoBehaviour
 
 
         rbParts = GetComponentsInChildren<Rigidbody2D> ();
+        onChangeDashCount.Invoke (Dashs);
     }
 
     private void Update() {
