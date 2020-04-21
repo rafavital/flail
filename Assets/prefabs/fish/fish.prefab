@@ -682,13 +682,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5fdfa371b888a9bb66d9ce05543210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flailForce: 600
+  flailForce: 300
   flailTorque: 150
-  resetTimer: 5
+  resetTimer: 0.3
   flailIncrement: 0.1
   puddleTag: Puddle
-  minMaxX: {x: 0.5, y: 1}
-  minMaxY: {x: 0.2, y: 0.7}
+  minMaxX: {x: 0.3, y: 0.5}
+  minMaxY: {x: 0.5, y: 0.8}
   flailSoundName: flail
   onChangeFlailAmount:
     m_PersistentCalls:

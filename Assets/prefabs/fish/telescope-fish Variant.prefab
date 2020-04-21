@@ -5624,26 +5624,6 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: minMaxX.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: minMaxX.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: minMaxY.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905708073986573717, guid: ee1904c9bd9eccc118e7e7a2d8715fae,
-        type: 3}
-      propertyPath: flailIncrement
-      value: 0.01
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee1904c9bd9eccc118e7e7a2d8715fae, type: 3}
 --- !u!4 &228945763587786559 stripped
